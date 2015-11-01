@@ -4,15 +4,15 @@ import math, sys
 def eq_1(x):
     """ В правой части решаемое уравнение """
     try:
-        y = math.log(x) + 4*x
+        y = math.log(x) + 4 * x
         return y
     except ValueError:
         print ("Invalid argument")
         sys.exit()
-def div_half(a, b, eps):
+def div_half(a, b, eq_1, eps):
     """ Метод дихотомии """
     n = 0
-    if eq_1(a)*eq_1(b) > 0:
+    if eq_1(a) * eq_1(b) > 0:
         print("No solution")
         sys.exit()
     while True:
@@ -26,8 +26,8 @@ def div_half(a, b, eps):
             else: 
                 sign[m] = "-"
             m+=1
-        print("%d   %.5f   %s   %s   %.5f   %.5f   %s" 
-                % (n, a, sign[0], sign[1], b, x, sign[2]))
+        print("%d   %.5f   %s   %s"  % ( n, a, sign[0], sign[1]), end=" ")
+        print("%.5f   %.5f   %s" % (b, x, sign[2]))
         if y[0]*y[2] > 0: 
             a = x
         else: 
@@ -41,8 +41,8 @@ def main():
     # a = float(input("Введите левую границу: "))
     # b = float(input("Введите правую границу: "))
     # eps = float(input("Введите точность: "))
-    a = 0.000001; b = 1; eps = 0.001
-    x = div_half(a, b, eps)
-    print("\n %.5f" % (x))
+    a = .000001; b = 1; eps = .001
+    x = div_half(a, b, eq_1, eps)
+    print("\n%.5f" % (x))
 # запуск программы
 main()
