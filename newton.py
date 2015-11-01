@@ -11,6 +11,7 @@ def newtons_method(x0, f, f1, eps):
         if abs(x1 - x0) < eps:
             return x1
         x0 = x1
+        n+=1
 def f(x):
     """ В правой части решаемое уравнение """
     try:
