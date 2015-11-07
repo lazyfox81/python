@@ -4,8 +4,10 @@ def read_matrix(f):
     """ read  matrix from file """
     A = []
     for line in f:
-        # метод split() превращает строку в список
-        # map преобразует аргумент в int
+        # метод split() формирует список из слов строки
+        # map(function, sequence) применяет функцию к каждому элементу
+        # последовательности
+        # list(sequence) формирует список из последовательности
         A.append(list(map(int, line.split()))) 
     return A
 def write_matrix(A):
