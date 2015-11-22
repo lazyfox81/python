@@ -9,9 +9,9 @@ def read_matrix(f, typee):
         # последовательности
         # list(sequence) формирует список из последовательности
         if typee == "int_t":
-            A.append(list(map(int, line.split()))) 
+            A.append(list(map(int, line.split())))
         elif typee == "float_t":
-            A.append(list(map(float, line.split()))) 
+            A.append(list(map(float, line.split())))
         else:
             print("Please, define the type of data")
             sys.exit()

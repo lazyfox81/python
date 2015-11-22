@@ -21,16 +21,16 @@ def div_half(a, b, f, eps):
         sign = ["0", "0", "0"]
         m = 0
         for yy in y:
-            if yy > 0: 
+            if yy > 0:
                 sign[m] = "+"
-            else: 
+            else:
                 sign[m] = "-"
             m+=1
         print("%d   %.5f   %s   %s"  % ( n, a, sign[0], sign[1]), end=" ")
         print("%.5f   %.5f   %s" % (b, x, sign[2]))
-        if y[0]*y[2] > 0: 
+        if y[0]*y[2] > 0:
             a = x
-        else: 
+        else:
             b = x
         n+=1
         if (b - a) <= eps:

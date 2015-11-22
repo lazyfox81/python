@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Systems of Linear Equations: Solving by Gaussian Elimination 
+# Systems of Linear Equations: Solving by Gaussian Elimination
 import matrix
 def main_elem(A):
     """ Выбор главного элемента """
