@@ -15,4 +15,5 @@ def main():
     gmail.close()
     # Shutdown connection to server. Returns server BYE response.
     gmail.logout()
+# Run the programm
 main()
