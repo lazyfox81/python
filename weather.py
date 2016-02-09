@@ -19,15 +19,12 @@ if __name__ == '__main__':
     root = get_weather(id_city)
     ns = {'fc': 'http://weather.yandex.ru/forecast'}
     fact = root.find('fc:fact', ns)
-    # print(fact.tag)
     cond = fact.find('fc:weather_condition', ns)
-    # print("Weather from %s" % (root.get('link')))
     text = "Weather from %s" % (root.get('link'))
     cprint(text, 'magenta', attrs=['bold'])
-    # cprint('Weather form yandex', 'blue')
-    print("Conditions for %s, %s" %
-          (fact.find('fc:station', ns).text,
-           fact.find('fc:observation_time', ns).text))
-    print("Current condition: %s(%s), %s\u00b0C" %
+    text = "Conditions for %s at %s" % (fact.find('fc:station', ns).text,
+                                       fact.find('fc:observation_time', ns).text)
+    cprint(text, 'blue', attrs=['bold'])
+    print("Current conditions:\n%s(%s), %s\u00b0C" %
           (cond.get('code'), fact.find('fc:weather_type', ns).text,
            fact.find('fc:temperature', ns).text))
