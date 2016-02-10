@@ -15,16 +15,16 @@ def get_weather(req_id):
     return tree.getroot()
 
 if __name__ == '__main__':
-    id_city = 27612 #https://pogoda.yandex.ru/static/cities.xml
+    id_city = 27612             # https://pogoda.yandex.ru/static/cities.xml
     root = get_weather(id_city)
     ns = {'fc': 'http://weather.yandex.ru/forecast'}
     fact = root.find('fc:fact', ns)
     cond = fact.find('fc:weather_condition', ns)
-    text = "Weather from %s" % (root.get('link'))
-    cprint(text, 'magenta', attrs=['bold'])
-    text = "Conditions for %s at %s" % (fact.find('fc:station', ns).text,
-                                       fact.find('fc:observation_time', ns).text)
-    cprint(text, 'blue', attrs=['bold'])
-    print("Current conditions:\n%s(%s), %s\u00b0C" %
-          (cond.get('code'), fact.find('fc:weather_type', ns).text,
+    cprint('Yandex.Pogoda', 'magenta', attrs=['bold'])
+    text = "Conditions for %s at %s" % (
+        root.get('slug').capitalize(),
+        fact.find('fc:observation_time', ns).text)
+    cprint(text, 'cyan', attrs=['bold'])
+    print("%s (%s), %s\u00b0C" %
+          (cond.get('code').capitalize(), fact.find('fc:weather_type', ns).text,
            fact.find('fc:temperature', ns).text))
