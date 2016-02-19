@@ -28,3 +28,11 @@ if __name__ == '__main__':
     print("%s (%s), %s\u00b0C" %
           (cond.get('code').capitalize(), fact.find('fc:weather_type', ns).text,
            fact.find('fc:temperature', ns).text))
+    for day in root.findall('fc:day', ns):
+        print (day.get('date'))
+        for day_part in day.findall('fc:day_part', ns):
+            cond = day_part.find('fc:weather_condition', ns)
+            temp_data = day_part.find('fc:temperature-data', ns)
+            avg_temp = temp_data.find('fc:avg', ns).text
+            print ("   %s   %s %s" %
+                   (day_part.get('type'), cond.get('code').capitalize(),avg_temp))
