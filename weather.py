@@ -36,5 +36,7 @@ if __name__ == '__main__':
             avg_temp_str = temp_data.find('fc:avg', ns).text
             day_part_str = day_part.get('type')
             if day_part_str == "day_short" or day_part_str == "night_short":
+                if day_part_str == "day_short": prt = 'Day'
+                if day_part_str == "night_short": prt = 'Night'
                 print ("%s\t%s %s" %
-                       (day_part_str, cond.get('code').capitalize(), avg_temp_str))
+                       (prt, cond.get('code').capitalize(), avg_temp_str))
