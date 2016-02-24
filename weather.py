@@ -38,5 +38,5 @@ if __name__ == '__main__':
             if day_part_str == "day_short" or day_part_str == "night_short":
                 if day_part_str == "day_short": prt = 'Day'
                 if day_part_str == "night_short": prt = 'Night'
-                print ("%s\t%s %s" %
+                print ("%s\t%s  %s\u00b0C" %
                        (prt, cond.get('code').capitalize(), avg_temp_str))
