@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Weather in terminal
+# Currency rate in terminal
 # required module 'termcolor'
 
 import xml.etree.ElementTree as ET
@@ -23,9 +23,6 @@ def get_currency(root):
     return rate
 
 if __name__ == '__main__':
-    # ns = {'fc': 'http://weather.yandex.ru/forecast'}
-    # fact = root.find('fc:fact', ns)
-    # cond = fact.find('fc:weather_condition', ns)
     currency_rate = get_currency(get_root())
     title = "Currency rate at %s" % (get_root().get('Date'))
     cprint(title, 'magenta', attrs=['bold'])
