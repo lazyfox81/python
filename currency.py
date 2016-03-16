@@ -10,18 +10,24 @@ from termcolor import colored, cprint
 
 import calendar
 
-def get_currency():
+def get_root():
     url = 'http://www.cbr.ru/scripts/XML_daily.asp?d=0'
-    # print(url)
     tree = ET.parse(urllib.request.urlopen(url))
     return tree.getroot()
 
-if __name__ == '__main__':
-    root = get_currency()
+def get_currency(root):
+    rate = {}
     for currency in root:
         currency_code = currency.find('CharCode').text
-        if currency_code == 'USD' or currency_code == 'EUR':
-            print("%s %s" % (currency_code, currency.find('Value').text))
+        rate[currency_code] = currency.find('Value').text
+    return rate
+
+if __name__ == '__main__':
     # ns = {'fc': 'http://weather.yandex.ru/forecast'}
     # fact = root.find('fc:fact', ns)
     # cond = fact.find('fc:weather_condition', ns)
+    currency_rate = get_currency(get_root())
+    title = "Currency rate at %s" % (get_root().get('Date'))
+    cprint(title, 'magenta', attrs=['bold'])
+    cprint(("USD:\t%s" % (currency_rate['USD'])), 'cyan', attrs=['bold'])
+    cprint(("EUR:\t%s" % (currency_rate['EUR'])), 'cyan', attrs=['bold'])
