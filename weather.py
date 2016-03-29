@@ -32,7 +32,7 @@ def get_weekday(date_str):
     return day
 
 if __name__ == '__main__':
-    id_city = 27612             # https://pogoda.yandex.ru/static/cities.xml
+    id_city = '27612'             # https://pogoda.yandex.ru/static/cities.xml
     root = get_weather(id_city)
     ns = {'fc': 'http://weather.yandex.ru/forecast'}
     fact = root.find('fc:fact', ns)
