@@ -47,14 +47,18 @@ if __name__ == '__main__':
            fact.find('fc:temperature', ns).text))
     for day in root.findall('fc:day', ns):
         date_str = day.get('date')
-        cprint ((get_weekday(date_str) + " "  + date_str), 'red', attrs=['bold'])
+        cprint (("\n" + get_weekday(date_str) + " "  + date_str), 'red', attrs=['bold'], end="")
         for day_part in day.findall('fc:day_part', ns):
             cond = day_part.find('fc:weather_condition', ns)
             temp_data = day_part.find('fc:temperature-data', ns)
             avg_temp_str = temp_data.find('fc:avg', ns).text
             day_part_str = day_part.get('type')
             if day_part_str == "day_short" or day_part_str == "night_short":
-                if day_part_str == "day_short": prt = 'Day'
-                if day_part_str == "night_short": prt = 'Night'
-                print ("%s\t%s  %s\u00b0C" %
-                       (prt, cond.get('code').capitalize(), avg_temp_str))
+                if day_part_str == "day_short":
+                    prt = 'Day'
+                    print ("\t\t%s\t%s  %s\u00b0C" %
+                        (prt, cond.get('code').capitalize(), avg_temp_str))
+                if day_part_str == "night_short":
+                    prt = 'Night'
+                    print ("\t\t\t%s\t%s  %s\u00b0C" %
+                        (prt, cond.get('code').capitalize(), avg_temp_str))
