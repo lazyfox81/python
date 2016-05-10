@@ -1,0 +1,6 @@
+vocabulary:словарь
+concern:касательство,отношение
+blink:мерцание
+awaken:пробуждение
+larva:личинка
+push:толчок
