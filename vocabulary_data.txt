@@ -4,3 +4,36 @@ blink:мерцание
 awaken:пробуждение
 larva:личинка
 push:толчок
+pantience:терпение
+govern:править
+charming:очаровательный
+lumber:хлам,пиломатериалы
+lumberjack:дровосек
+curve:кривая
+curvy:изогнутый
+obtain:получать,добывать
+prayer:молитва
+brim:край
+sage:шалфей,мудрец
+mallet:молот
+cottage:коттедж
+defence:защита
+hang on:упорствовать,ждать
+impress:штамп,поражать
+shackle:кагндалы,наручники
+decoy:манок,приманка
+suppose:полагать
+expect:ожидать
+lustrous:блестящий
+invite:приглашать
+uninvited:незванный
+hurry:спешка
+either:любой из двух,один их двух
+ether:эфир
+viper:гадюка
+involve:вовлекать
+reveal:открывать
+shul:синагога
+rid:освобождать
+scope:границы,рамки
+hurt:рана
