@@ -21,7 +21,6 @@ import os
 import stat
 import shutil
 
-
 def remove_readonly(fn, path, excinfo):
     if fn is os.rmdir:
         os.chmod(path, stat.S_IWRITE)
