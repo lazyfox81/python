@@ -20,6 +20,7 @@ import sys
 import os
 import stat
 import shutil
+import subprocess
 
 def remove_readonly(fn, path, excinfo):
     if fn is os.rmdir:
@@ -58,7 +59,8 @@ if __name__ == "__main__":
 
             cmd = " ".join(wine_command + args)
             print(cmd)
-            os.popen(cmd)
+            # os.popen(cmd)
+            subprocess.Popen(cmd, shell=True)
 
         else:
             wine_command = [
@@ -67,4 +69,5 @@ if __name__ == "__main__":
 
             cmd = " ".join(wine_command + args)
             print(cmd)
-            os.popen(cmd)
+            # os.popen(cmd)
+            subprocess.Popen(cmd, shell=True)
